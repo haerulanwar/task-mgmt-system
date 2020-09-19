@@ -61,6 +61,7 @@ typings/
 .idea
 *.iml
 launch.json
+.vscode
 
 # temp folder
 temp/*.txt
