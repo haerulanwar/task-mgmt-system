@@ -40,7 +40,7 @@ describe('User Routes SignUp', () => {
         password:"test"
       })
       .end((err, res) => {
-      expect(res).to.have.status(200)
+      expect(res).to.have.status(201)
       expect(res.body.message).to.contain('Success to register')
       done()
     })
@@ -88,7 +88,7 @@ describe('User Routes SignIn', () => {
     })
   })
 
-  it('success to SignUp', (done) => {
+  it('success to SignIn', (done) => {
     chai.request(app)
       .post('/api/user/signup')
       .send({
