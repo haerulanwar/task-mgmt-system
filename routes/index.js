@@ -3,4 +3,5 @@ module.exports = (app) => {
   app.use('/', require('./web'))
 
   // API routes
+  app.use('/api/user', require('./user'))
 }

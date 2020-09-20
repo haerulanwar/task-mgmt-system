@@ -9,7 +9,9 @@
     "start": "node ./bin/www",
     "dev": "nodemon --watch ./ ./bin/www",
     "test": "mocha tests",
-    "db:create": "npx sequelize-cli db:create"
+    "db:create": "npx sequelize-cli db:create",
+    "jslint": "./node_modules/.bin/eslint \"models/**/*.js\" \"routes/**/*.js\" \"controller/**/*.js\" \"validations/**/*.js\" \"builders/**/*.js\" \"app.js\"",
+    "jsfmt": "./node_modules/.bin/eslint \"models/**/*.js\" \"routes/**/*.js\" \"controller/**/*.js\" \"validations/**/*.js\" \"builders/**/*.js\" \"app.js\" --fix"
   },
   "engines": {
     "node": "12.18.4",
@@ -19,6 +21,7 @@
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "~4.16.1",
+    "express-validator": "^6.6.1",
     "http-errors": "~1.6.3",
     "morgan": "~1.9.1",
     "pg": "^8.3.3",
@@ -29,6 +32,12 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
+    "eslint": "^7.9.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
     "mocha": "^8.1.3",
     "nodemon": "^2.0.4"
   }
