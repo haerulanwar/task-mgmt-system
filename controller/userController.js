@@ -30,7 +30,10 @@ module.exports = {
       const secKey = Buffer.from(config.secret, 'base64').toString('utf8')
       const decPassword = decodePassword(u.password, secKey)
       if (decPassword === password) {
-        const token = jwt.sign({ username: username },
+        const token = jwt.sign({ 
+          userId: u.id,
+          username: u.username
+        },
           config.secret,
           {
             expiresIn: '1h' // expires in 24 hours
