@@ -8,10 +8,14 @@
   "scripts": {
     "start": "node ./bin/www",
     "dev": "nodemon --watch ./ ./bin/www",
-    "test": "mocha tests",
+    "test":"mocha tests",
+    "db:test": "npm run db:reset:test && cross-env NODE_ENV=test mocha tests",
     "db:create": "npx sequelize-cli db:create",
     "jslint": "./node_modules/.bin/eslint \"models/**/*.js\" \"routes/**/*.js\" \"controller/**/*.js\" \"validations/**/*.js\" \"builders/**/*.js\" \"app.js\"",
-    "jsfmt": "./node_modules/.bin/eslint \"models/**/*.js\" \"routes/**/*.js\" \"controller/**/*.js\" \"validations/**/*.js\" \"builders/**/*.js\" \"app.js\" --fix"
+    "jsfmt": "./node_modules/.bin/eslint \"models/**/*.js\" \"routes/**/*.js\" \"controller/**/*.js\" \"validations/**/*.js\" \"builders/**/*.js\" \"app.js\" --fix",
+    "db:create:test": "cross-env NODE_ENV=test npx sequelize-cli db:create && cross-env NODE_ENV=test npx sequelize db:migrate",
+    "db:drop:test": "cross-env NODE_ENV=test npx sequelize-cli db:drop",
+    "db:reset:test": "npm run db:drop:test && npm run db:create:test"
   },
   "engines": {
     "node": "12.18.4",
@@ -23,6 +27,7 @@
     "express": "~4.16.1",
     "express-validator": "^6.6.1",
     "http-errors": "~1.6.3",
+    "jsonwebtoken": "^8.5.1",
     "morgan": "~1.9.1",
     "node-rsa": "^1.1.1",
     "pg": "^8.3.3",
@@ -33,6 +38,7 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "chai-http": "^4.3.0",
+    "cross-env": "^7.0.2",
     "eslint": "^7.9.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",

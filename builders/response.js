@@ -30,5 +30,8 @@ module.exports = {
   },
   notFound: function (res, message, err) {
     sendResponse(res, 404, message, null, err)
+  },
+  unauthorised: function (res, message, err) {
+    sendResponse(res, 401, message, null, err)
   }
 }
