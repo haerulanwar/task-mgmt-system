@@ -4,4 +4,5 @@ module.exports = (app) => {
 
   // API routes
   app.use('/api/user', require('./user'))
+  app.use('/api/task', require('./task'))
 }
