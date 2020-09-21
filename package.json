@@ -10,9 +10,9 @@
     "dev": "nodemon --watch ./ ./bin/www",
     "test":"mocha tests",
     "db:test": "npm run db:reset:test && cross-env NODE_ENV=test mocha tests",
-    "db:create": "npx sequelize-cli db:create",
-    "jslint": "./node_modules/.bin/eslint \"models/**/*.js\" \"routes/**/*.js\" \"controller/**/*.js\" \"validations/**/*.js\" \"builders/**/*.js\" \"app.js\"",
-    "jsfmt": "./node_modules/.bin/eslint \"models/**/*.js\" \"routes/**/*.js\" \"controller/**/*.js\" \"validations/**/*.js\" \"builders/**/*.js\" \"app.js\" --fix",
+    "db:create": "npx sequelize-cli db:create && npx sequelize db:migrate",
+    "jslint": "./node_modules/.bin/eslint \"models/**/*.js\" \"routes/**/*.js\" \"controller/**/*.js\" \"validations/**/*.js\" \"utils/**/*.js\" \"app.js\"",
+    "jsfmt": "./node_modules/.bin/eslint \"models/**/*.js\" \"routes/**/*.js\" \"controller/**/*.js\" \"validations/**/*.js\" \"utils/**/*.js\" \"app.js\" --fix",
     "db:create:test": "cross-env NODE_ENV=test npx sequelize-cli db:create && cross-env NODE_ENV=test npx sequelize db:migrate",
     "db:drop:test": "cross-env NODE_ENV=test npx sequelize-cli db:drop",
     "db:reset:test": "npm run db:drop:test && npm run db:create:test"

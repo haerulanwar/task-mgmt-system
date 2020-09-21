@@ -126,8 +126,8 @@ describe('Task Routes', () => {
           location:"test"
         })
         .end((err, res) => {
-        expect(res).to.have.status(200)
-        expect(res.body.message).to.contain('Success to login')
+        expect(res).to.have.status(201)
+        expect(res.body.message).to.contain('Success to create task')
         done()
       })
     })
@@ -176,20 +176,6 @@ describe('Task Routes', () => {
         done()
       })
     })
-
-    it('list not found', (done) => {
-      chai.request(app)
-        .get('/api/task/list')
-        .query({
-          location: "testing"
-        })
-        .set({ "Authorization": `Bearer ${token}` })
-        .end((err, res) => {
-        expect(res).to.have.status(404)
-        expect(res.body.message).to.contain('Not Found')
-        done()
-      })
-    })
   
     it('success list by time', (done) => {
       chai.request(app)
@@ -207,7 +193,7 @@ describe('Task Routes', () => {
 
     it('success list by location', (done) => {
       chai.request(app)
-        .get('/api/task/add')
+        .get('/api/task/list')
         .query({
           location: "test"
         })
