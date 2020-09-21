@@ -1,5 +1,5 @@
 const { validationResult } = require('express-validator')
-const responseBuild = require('../builders/response')
+const responseBuild = require('../utils/response')
 
 module.exports = (req, res, next) => {
   const errors = validationResult(req)

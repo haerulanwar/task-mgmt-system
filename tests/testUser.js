@@ -4,7 +4,7 @@ const expect = chai.expect
 const app = require('../app')
 const { user } = require('../models')
 const config = require('../config/config.json')
-const { encodePassword } = require('../builders/cryptoUtil')
+const { encodePassword } = require('../utils/cryptoUtil')
 
 chai.use(chaiHttp)
 
@@ -177,7 +177,7 @@ describe('User Routes SignIn', () => {
   })
 })
 
-describe('User Routes SignUp', () => {
+describe('User Routes SignOut', () => {
 
   it('Success to logout', (done) => {
     chai.request(app)

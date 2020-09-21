@@ -1,6 +1,6 @@
-const responseBuild = require('../builders/response')
+const responseBuild = require('../utils/response')
 const config = require('../config/config.json')
-const { encodePassword, decodePassword } = require('../builders/cryptoUtil')
+const { encodePassword, decodePassword } = require('../utils/cryptoUtil')
 const { user } = require('../models')
 const jwt = require('jsonwebtoken')
 
@@ -30,14 +30,14 @@ module.exports = {
       const secKey = Buffer.from(config.secret, 'base64').toString('utf8')
       const decPassword = decodePassword(u.password, secKey)
       if (decPassword === password) {
-        const token = jwt.sign({ 
+        const token = jwt.sign({
           userId: u.id,
           username: u.username
         },
-          config.secret,
-          {
-            expiresIn: '1h' // expires in 24 hours
-          }
+        config.secret,
+        {
+          expiresIn: '1h' // expires in 24 hours
+        }
         )
         responseBuild.ok(res, 'Success to login', {
           message: 'Authentication successful!',
