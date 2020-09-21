@@ -130,6 +130,7 @@ Task is used for adding and get list of task based on user logon
 * **[Post]** /task/add
   Add new task
     * request
+
             header:
               Authorization: Bearer token
             json:
@@ -179,6 +180,7 @@ Task is used for adding and get list of task based on user logon
 * **[Get]** /task/list
   Add new task
     * request
+    
             header:
               Authorization: Bearer token
             query param:
